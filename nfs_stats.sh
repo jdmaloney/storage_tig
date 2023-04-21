@@ -16,3 +16,6 @@ fi
 if [ -n "${nfs_v4}" ]; then
 	echo nfs_perf_stats,nfsvers=4 ${nfs_v4}
 fi
+
+client_connections=$(/usr/bin/netstat -an | grep 2049 | grep -v "0 0.0.0.0:2049" | wc -l)
+echo nfs_connection_stats client_connections=${client_connections}
